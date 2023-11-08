@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/search.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="item active">
+            <img src="images/Screenshot 2023-11-01 144116.png" alt="Screenshot">
+        </div>
+    </header>
+    <h1>Vistor Infomation</h1>
+    <main>
+        First name <input onclick="searchTable()" type="text"> <input type="button" value="Search">(Type First name and
+        Click Search Button)
+        <table id="visitor-table">
+            <tr class="table1">
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Gender</th>
+                <th>Telephone</th>
+                <th>You're in</th>
+                <th>Hobies</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Join</td>
+                <td>Terry</td>
+                <td>Male</td>
+                <td>090909909</td>
+                <td>Europe</td>
+                <td>Shopping</td>
+                <td>One thing to note is you should make sure not to define the background color of a table cell in your
+                    stylesheet as that'll stop the row highlight code from working properly </td>
+
+
+            </tr>
+
+            <tr>
+                <td>Join</td>
+                <td>Terry</td>
+                <td>Male</td>
+                <td>090909909</td>
+                <td>Europe</td>
+                <td>Shopping</td>
+                <td>One thing to note is you should make sure not to define the background color of a table cell in your
+                    stylesheet as that'll stop the row highlight code from working properly </td>
+
+
+            </tr>
+            <tr>
+                <td>Join</td>
+                <td>Terry</td>
+                <td>Male</td>
+                <td>090909909</td>
+                <td>Europe</td>
+                <td>Shopping</td>
+                <td>One thing to note is you should make sure not to define the background color of a table cell in your
+                    stylesheet as that'll stop the row highlight code from working properly </td>
+
+
+            </tr>
+
+        </table>
+
+
+    </main>
+    <script>
+        function searchTable() {
+            // Get the value of the input element
+            var keyword = document.querySelector("input[type='text']").value.toLowerCase();
+            // Get the table element by id
+            var table = document.getElementById("visitor-table");
+            // Loop through all the rows of the table
+            for (var i = 0; i < table.rows.length; i++) {
+                // Skip the first row that contains the headers
+                if (i == 0) continue;
+                // Get the current row
+                var row = table.rows[i];
+                // Assume that the row does not contain the keyword
+                var found = false;
+                // Loop through all the cells of the row
+                for (var j = 0; j < row.cells.length; j++) {
+                    // Get the current cell
+                    var cell = row.cells[j];
+                    // Get the text content of the cell
+                    var text = cell.textContent.toLowerCase();
+                    // Check if the text contains the keyword
+                    if (text.indexOf(keyword) > -1) {
+                        // If yes, set found to true and break out of the loop
+                        found = true;
+                        break;
+                    }
+                }
+                // If found is true, show the row, otherwise hide it
+                if (found) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,52 @@
+img {
+    width: 100%;
+    height: 200px;
+}
+
+main h1 {
+    color: green;
+    font-size: 40px;
+}
+
+.container .table {
+    border: 1px solid black;
+}
+
+.container .table .first-name {
+    margin-left: 96px;
+    width: 400px;
+}
+
+.container .table .gender {
+    margin-left: 120px;
+}
+
+.email {
+    margin-left: 140px;
+    width: 400px;
+}
+
+.container .table .address {
+    margin-left: 100px;
+}
+
+.container .table .address1 {
+    margin-left: 200px;
+}
+
+.hobies {
+    margin-left: 200px;
+}
+
+.description {
+    margin-left: 50%;
+}
+
+.text-area {
+    margin-left: 200px;
+    border-top: 60px;
+}
+
+.submit {
+    margin-left: 300px;
+}

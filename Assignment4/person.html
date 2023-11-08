@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="item active">
+            <img src="images/Screenshot 2023-11-01 144116.png" alt="Screenshot">
+        </div>
+    </header>
+    <main>
+        <h1>Vistor Infomation</h1>
+
+        <form action="" onsubmit="return validateForm()">
+            <div class="container">
+                <div class="table">
+                    <h5>First name: <input id="first-name" class="first-name" type="text" /></h5>
+                    <h5>Last name: <input id="last-name" class="first-name" type="text" /></h5>
+                    <h5>Gender:
+                        <select name="Gender" id="Gender" class="gender">
+                            <option id="gender">Male</option>
+                            <option id="gender">Female</option>
+                            <option id="gender">Other</option>
+                        </select>
+                    </h5>
+                    <h5>Email: <input id="email" class="email" type="text" /></h5>
+                    <h5>You are in :
+
+                        <input id="address" type="radio" name="address" class="address" />Europe
+                        <input id="address" type="radio" name="address" class="address" />Afica
+                        <div class="address1">
+                            <input id="address" type="radio" name="address" />Australia
+                            <input id="address" type="radio" name="address" />Asia
+                            <input id="address" type="radio" name="address" />America
+                        </div>
+                    </h5>
+                    <h5>What are you hobies:
+                        <input id="hobies" type="checkbox">Swimming
+                        <input id="hobies" type="checkbox">Cooking
+                        <input id="hobies" type="checkbox">Shopping
+                        <div class="hobies">
+                            <input id="hobies" type="checkbox">Sport
+                            <input id="hobies" type="checkbox">Dance
+                            <input id="hobies" type="checkbox">Sing
+                        </div>
+                    </h5>
+                    <h5>Description:<h5>
+                            <div class="text-area">
+                                <textarea id="description" rows="5" cols="50"></textarea>
+                            </div>
+                            <input type="submit" value="Resgister" class="submit">
+                </div>
+            </div>
+        </form>
+    </main>
+    <script>
+        function validateForm() {
+            const firstName = document.getElementById("first-name").value;
+            const lastName = document.getElementById("last-name").value;
+            const gender = document.getElementById("gender").value;
+            const email = document.getElementById("email").value;
+            const address = document.getElementById("address").value;
+            const hobies = document.getElementById("hobies").value;
+            const description = document.getElementById("description").value;
+
+            let flag = true;
+
+            if (firstName === "") {
+                alert("First name is require.");
+                flag = false;
+            }
+            else if (firstName.length > 20) {
+                alert("First name must be less than 20 characters.");
+                flag = false;
+            } else if (!/^[a-zA-Z]+$/.test(firstName)) {
+                alert("First name must be characters and not contain number.");
+                flag = false;
+            } else if (!/^[a-zA-Z]+$/.test(firstName)) {
+                alert("First name must be characters and not contain number.");
+                flag = false;
+            }
+
+            if (lastName == "") {
+                alert("Last name is required.");
+                flag = false;
+            } else if (lastName.length > 20) {
+                alert("Last name must be less than 20 characters.");
+                flag = false;
+            } else if (!/^[a-zA-Z]+$/.test(lastName)) {
+                alert("Last name must be characters and not contain number.");
+                flag = false;
+            }
+
+            if (email != "") {
+                if (email.length > 50) {
+                    alert("Email must be less than 50 character.");
+                    flag = false;
+                }
+            } else if (!/^[a-zA-Z0-9] + @[a-zA-Z]+\.[a-zA-Z]+$/.test(email)) {
+                alert("Email must be [a..Z][0..9]@[a..Z]");
+                flag = false;
+            }
+            let checked = false;
+            for (var i = 0; i < address.length; i++) {
+                if (address[i].checked) {
+                    checked = true;
+                    break;
+                }
+            }
+            if (!checked) {
+                alert("You are address is in require.");
+                flag = false;
+            }
+
+            if (description != "") {
+                if (description.length > 200) {
+                    alert("Description must be less than 200 characters.");
+                    flag = false;
+                }
+            }
+            return flag;
+
+
+        }
+    </script>
+</body>
+
+</html>
